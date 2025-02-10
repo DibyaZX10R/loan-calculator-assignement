@@ -1,0 +1,198 @@
+:host {
+  display: block;
+  height: 100vh;
+  background-color: #2c3144;
+  color: white;
+}
+
+.loan-calculator {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .back-button, .menu-button {
+    color: white;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.funding-card {
+  background: linear-gradient(180deg, #3a405a 0%, #343850 100%);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 210, 210, 0.15);
+
+  .title {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+  }
+
+  .amount {
+    text-align: left;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 12px 0;
+    padding-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .vehicle-info {
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    .vehicle-details {
+      .vehicle-name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        margin-bottom: 2px;
+
+        .filter-button {
+          color: rgba(255, 255, 255, 0.7);
+          border: none;
+          width: 24px;
+          height: 24px;
+          padding: 0;
+          margin: -4px -4px -4px 0;
+          min-width: 24px;
+          line-height: 24px;
+
+          .mat-icon {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+          }
+        }
+      }
+
+      .vehicle-year {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.slider-section {
+  background-color: #3a405a;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+
+    .amount, .period {
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  .range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+  }
+
+
+  .custom-slider {
+    width: 100%;
+    --mdc-slider-handle-color: #00d2d2;
+    --mdc-slider-focus-handle-color: #00d2d2;
+    --mdc-slider-hover-handle-color: #00d2d2;
+    --mdc-slider-active-track-color: #00d2d2;
+    --mdc-slider-inactive-track-color: rgba(255, 255, 255, 0.2);
+    --mdc-slider-with-tick-marks-active-container-color: #fff;
+    --mdc-slider-with-tick-marks-inactive-container-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.installment-section {
+  .label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+  }
+
+  .amount {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 8px 0;
+  }
+
+  .disclaimer {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 8px 0 0;
+  }
+}
+
+.apply-button {
+  background-color: #00d2d2;
+  color: white;
+  width: 100%;
+  padding: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background-color: darken(#00d2d2, 5%);
+  }
+}
+
+::ng-deep {
+  .mat-mdc-slider.custom-slider {
+    .mdc-slider__track--active {
+      height: 4px;
+    }
+
+    .mdc-slider__track--inactive {
+      height: 4px;
+    }
+
+    .mdc-slider__thumb-knob {
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      border: 2px solid white;
+    }
+  }
+}

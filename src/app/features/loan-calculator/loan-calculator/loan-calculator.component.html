@@ -1,0 +1,85 @@
+<div class="loan-calculator">
+  <header class="header">
+    <button mat-icon-button class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1>Loan Calculator</h1>
+    <button mat-icon-button class="menu-button">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </header>
+
+  <div class="content">
+    <div class="funding-card">
+      <div class="title">Maximum Funding</div>
+      <div class="amount">{{ formatCurrency(loanDetails.maxFunding) }}</div>
+      <div class="vehicle-info">
+        <div class="vehicle-details">
+          <div class="vehicle-name">
+            {{ loanDetails.vehicleName }}
+            <button mat-icon-button class="filter-button">
+              <mat-icon>tune</mat-icon>
+            </button>
+          </div>
+          <div class="vehicle-year">{{ loanDetails.vehicleYear }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-section">
+      <div class="slider-label">
+        <span>Loan Amount</span>
+        <span class="amount">{{ formatCurrency(loanDetails.loanAmount) }}</span>
+      </div>
+      <mat-slider
+        [min]="loanRange.min"
+        [max]="loanRange.max"
+        [step]="100000"
+        [discrete]="true"
+        class="custom-slider">
+        <input
+          matSliderThumb
+          [value]="loanDetails.loanAmount"
+          (valueChange)="onLoanAmountChange($event)">
+      </mat-slider>
+      <div class="range-labels">
+        <span>{{ formatCurrency(loanRange.min) }}</span>
+        <span>{{ formatCurrency(loanRange.max) }}</span>
+      </div>
+    </div>
+
+    <div class="slider-section">
+      <div class="slider-label">
+        <span>Loan Period</span>
+        <span class="period">{{ formatPeriod(loanDetails.loanPeriod) }}</span>
+      </div>
+      <mat-slider
+        [min]="loanPeriodRange.min"
+        [max]="loanPeriodRange.max"
+        [step]="1"
+        [discrete]="true"
+        class="custom-slider">
+        <input
+          matSliderThumb
+          [value]="loanDetails.loanPeriod"
+          (valueChange)="onLoanPeriodChange($event)">
+      </mat-slider>
+      <div class="range-labels">
+        <span>{{ formatPeriod(loanPeriodRange.min) }}</span>
+        <span>{{ formatPeriod(loanPeriodRange.max) }}</span>
+      </div>
+    </div>
+
+    <div class="installment-section">
+      <span class="label">Estimated monthly installments</span>
+      <h2 class="amount">{{ formatCurrency(loanDetails.monthlyInstallment) }}</h2>
+      <p class="disclaimer">
+        Installment fees may change according to the results of the verification of the physical condition of the vehicle at the branch office
+      </p>
+    </div>
+
+    <button mat-flat-button class="apply-button" (click)="onApplyLoan()">
+      APPLY LOAN
+    </button>
+  </div>
+</div>
